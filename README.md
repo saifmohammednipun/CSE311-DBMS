@@ -1,6 +1,6 @@
 # CSE311-DBMS 
 
-# Resources -
+### Resources 
 1. Complete SQL Roadmap - https://roadmap.sh/sql
 
 2. Follow any one of the following languages that you are comfortable with -
