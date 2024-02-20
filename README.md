@@ -19,4 +19,5 @@
 
 ### 5. Learning Websites
 * GeeksforGeeks - https://www.geeksforgeeks.org/dbms/?ref=lbp
+* tutorialspoint - https://www.tutorialspoint.com/mysql/index.htm
 * W3Schools - https://www.w3schools.com/MySQL/default.asp
