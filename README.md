@@ -17,6 +17,7 @@
 
 ### Lab Resources
 * Fall 2020 - https://github.com/aaneloy/CSE311L-Section-2-Fall20-NSU
+* CSE311_Team-9_Bus_Management_System - https://github.com/alifelham/Bus_Management_System
 
 ### Learning Websites
 * GeeksforGeeks - https://www.geeksforgeeks.org/dbms/?ref=lbp
