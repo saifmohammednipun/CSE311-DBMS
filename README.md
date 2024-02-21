@@ -1,7 +1,6 @@
 # CSE311 - Database Management System
 
 ## Learning Resources
-
 ### 1. SQL Roadmap 
 * Complete SQL Roadmap - https://roadmap.sh/sql
 
@@ -21,3 +20,8 @@
 * GeeksforGeeks - https://www.geeksforgeeks.org/dbms/?ref=lbp
 * tutorialspoint - https://www.tutorialspoint.com/mysql/index.htm
 * W3Schools - https://www.w3schools.com/MySQL/default.asp
+
+## Software Tools 
+* MySQL - https://dev.mysql.com/downloads/installer/
+* XAMPP - https://www.apachefriends.org/download.html
+* DB-LES - http://db.esrdlab.org/
