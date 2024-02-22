@@ -9,7 +9,7 @@
 * Viusal Paradigm - https://online.visual-paradigm.com/
 
 ### Video Tutorials
-* Bangla Database Tutorial 1 : কোর্স পরিচিতি | Introduction to course - https://www.youtube.com/watch?v=1IQbPxFkoiQ
+* MySQL Database Bangla Tutorials Updated for 2023 - https://youtube.com/playlist?list=PLgH5QX0i9K3qLcx9DvVDWmNJ7riPvxzCD&si=dc2Oi34GEcWB4QvT
 * MySQL Tutorial for Beginners [Full Course] - https://www.youtube.com/watch?v=7S_tz1z_5bA&t=1246s
 * SQL Tutorial - Full Database Course for Beginners - https://youtu.be/HXV3zeQKqGY?si=3Kry4Tq_RY7MCpv-
 * SQL - Complete Course in 3 Hours | SQL One Shot using MySQL - https://www.youtube.com/watch?v=hlGoQC332VM&t=17s
