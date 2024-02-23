@@ -1,6 +1,7 @@
 # CSE311 - Database Management System
 
 ## Learning Resources
+
 ### SQL Roadmap 
 * Complete SQL Roadmap - https://roadmap.sh/sql
 
