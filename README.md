@@ -2,7 +2,7 @@
 
 ## Learning Resources
 
-### SQL Roadmap 
+### SQL Roadmap
 * Complete SQL Roadmap - https://roadmap.sh/sql
 
 ### ER-Diagram Design
@@ -23,7 +23,7 @@
 * tutorialspoint - https://www.tutorialspoint.com/mysql/index.htm
 * W3Schools - https://www.w3schools.com/MySQL/default.asp
 
-## Software Tools 
+## Software Tools
 * MySQL - https://dev.mysql.com/downloads/installer/
 * XAMPP - https://www.apachefriends.org/download.html
 * DB-LES - http://db.esrdlab.org/
