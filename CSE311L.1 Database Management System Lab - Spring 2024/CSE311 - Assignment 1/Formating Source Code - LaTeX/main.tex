@@ -82,10 +82,9 @@
 
 \textbf{North South University}
 
-\textbf{\hfill\break 
-SPRING 2024}
+\textbf{\hfill\break SPRING 2024}
 
-\subsection{\uline{Assignment - 1}}
+\subsection{\uline{Ass ignment - 1}}
 \textbf{\section{ERD Design and Implementation}}
 
 \textbf{\hfill\break\hfill\break
@@ -116,7 +115,7 @@ North South University
 \textbf{\hfill\break\hfill\break
 \uline{Submission Date}}
 
-February 27, 2024
+February 29, 2024
 \end{center} % End centering
 
 
@@ -133,7 +132,7 @@ Teacher(\uline{T{\_}id}, Name, DOB, Street, City, Designation, Total{\_}Salary)
 
 Course(\uline{Course{\_}id}, Title, Credit{\_}hour)
 
-Teaches(\uline{T{\_}id}, \uline{Course{\_}id}, Semester, Year\_Teaching, Remuneration, Section, Number\_students, Course\_fee)
+Teaches(\uline{T{\_}id}, \uline{Course{\_}id}, \uline{Semester}, \uline{Year\_Teaching}, Remuneration, Section, Number\_students, Course\_fee)
 
 
 \break
@@ -158,11 +157,9 @@ Child(\uline{C\_BRN}, Name, DOB, BirthTime\_height, BirthTime\_weight, Gender, M
 \end{figure}
 
 \section{\textbf{\uline{Q3 - Schemas:}}}
-Person(\uline{NID}, Name, Gender, DOB, Profession, Income, Street, City, Birth\_registration, Apart\_id)
+Apartment(\uline{App\_id}, Size, Building\_name, TotalFloor\_num, Location, Price)
 
-Apartment(\uline{Apart\_id}, Size, Building\_name, TotalFloor\_num, Location, Price)
-
-
+Person(\uline{NID}, Name, Gender, DOB, Profession, Income, Street, City, Birth\_registration, App\_id)
 \end{document}
 
 
