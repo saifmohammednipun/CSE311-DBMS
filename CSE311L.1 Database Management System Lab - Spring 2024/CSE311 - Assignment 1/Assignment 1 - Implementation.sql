@@ -80,4 +80,3 @@ CREATE TABLE Person(NID INT NOT NULL,
                     PRIMARY KEY (NID),
                     FOREIGN KEY (Apart_id) REFERENCES apartment(Apart_id)
                     );
-
