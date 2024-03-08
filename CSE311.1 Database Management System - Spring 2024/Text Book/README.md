@@ -1,4 +1,5 @@
-![alt text](https://db-book.com/Practice-Exercises/images/db7-cover.jpg)Database System Concepts
+<img src="./db7-cover.jpg" height="150" alt="Cover page of the book database system concepts 7th edition">
+Database System Concepts
 Seventh Edition
 Avi Silberschatz
 Henry F. Korth
