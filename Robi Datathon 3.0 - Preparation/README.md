@@ -11,7 +11,6 @@
 8. A few machine learning techniques, model
 9. Time series analysis, predictive analysis, anova analysis, etc.
 
-
 ## Summary of the Meeting
 * The most important part of the datathon is understanding the data. A file will be given to you and you have find the insight of the data. To my understanding, those who are good in DB Design (ERD), Reduction to schema, reverse engineering from the dataset to find the logical structure of the data will be able to do good for this.
 
