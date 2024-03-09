@@ -1,4 +1,4 @@
-# CSE311 - Database Management System
+# CSE311 - Database Management Systems
 
 ## Learning Resources
 
