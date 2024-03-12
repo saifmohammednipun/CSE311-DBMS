@@ -23,5 +23,5 @@
 ## Understanding Data
 Task 1: Study the dataset, the attributes of the dataset, and relationship about the attributes. <br>
 Task 2: Write 5 innovative questions and find the data from the dataset to answer the questions.<br>
-Task3: Visualize the result of task 2 using appropriate plots. <br>
-Task4: Submit your output in a pdf file. <br>
+Task 3: Visualize the result of task 2 using appropriate plots. <br>
+Task 4: Submit your output in a pdf file. <br>
