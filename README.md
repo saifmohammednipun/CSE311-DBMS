@@ -13,7 +13,6 @@
 * MySQL Tutorial for Beginners [Full Course] - https://www.youtube.com/watch?v=7S_tz1z_5bA&t=1246s
 * SQL Tutorial - Full Database Course for Beginners - https://youtu.be/HXV3zeQKqGY?si=3Kry4Tq_RY7MCpv-
 
-
 ### Lab Resources
 * Fall 2020 - https://github.com/aaneloy/CSE311L-Section-2-Fall20-NSU
 * CSE311_Team-9_Bus_Management_System - https://github.com/alifelham/Bus_Management_System
