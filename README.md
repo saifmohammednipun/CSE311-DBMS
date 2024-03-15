@@ -1,4 +1,5 @@
 # CSE311 - Database Management System
+
 ## Learning Resources
 
 ### SQL Roadmap
