@@ -1,5 +1,11 @@
 # ROBI DATATHON 3.0 - Preparation
 
+## Resources
+1. PROFESSOR WIDOM'S INSTRUCTIONAL ODYSSEY - https://www.professorwidom.org/materials
+2. Python for Data Science - Course for Beginners (Learn Python, Pandas, NumPy, Matplotlib) - https://www.youtube.com/watch?v=LHBE6Q9XlzI
+3. Data Analysis with Python - Full Course for Beginners (Numpy, Pandas, Matplotlib, Seaborn) - https://www.youtube.com/watch?v=r-uOLxNrNk8
+4. Data Analysis with Python Course - Numpy, Pandas, Data Visualization - https://www.youtube.com/watch?v=GPVsHOlRBBI
+
 ## For Learning To do
 1. Python Language
 2. Jupyter Notebook/ Lab
@@ -20,7 +26,7 @@
 
 * The fourth and most important part is the novelty of your solution to solve the real life problems and develop applications.
 
-## Understanding Data
+## Understanding Data 
 Task 1: Study the dataset, the attributes of the dataset, and relationship about the attributes. <br>
 Task 2: Write 5 innovative questions and find the data from the dataset to answer the questions.<br>
 Task 3: Visualize the result of task 2 using appropriate plots. <br>
