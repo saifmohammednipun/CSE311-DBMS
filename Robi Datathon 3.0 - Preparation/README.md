@@ -5,6 +5,7 @@
 2. Python for Data Science - Course for Beginners (Learn Python, Pandas, NumPy, Matplotlib) - https://www.youtube.com/watch?v=LHBE6Q9XlzI
 3. Data Analysis with Python - Full Course for Beginners (Numpy, Pandas, Matplotlib, Seaborn) - https://www.youtube.com/watch?v=r-uOLxNrNk8
 4. Data Analysis with Python Course - Numpy, Pandas, Data Visualization - https://www.youtube.com/watch?v=GPVsHOlRBBI
+5. https://drive.google.com/drive/folders/1Gc4_CBkAHqJDGg-E1USLdtLjPO12-C02?fbclid=IwAR1aIGnx35J6VdWuXhGNjiPXieiPEThLuheiPJ-I3WMK8Kr0Eatb9xzc-Ik
 
 ## For Learning To do
 1. Python Language
