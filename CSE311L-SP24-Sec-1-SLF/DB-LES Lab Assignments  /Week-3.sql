@@ -50,4 +50,3 @@
     HAVING salary > 20000
     ORDER BY sum(salary) DESC;
 
-
