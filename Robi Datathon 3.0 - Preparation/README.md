@@ -26,9 +26,3 @@
 * The third part is the appropriate data visualization. You can use any visualization tool.
 
 * The fourth and most important part is the novelty of your solution to solve the real life problems and develop applications.
-
-## Understanding Data 
-Task 1: Study the dataset, the attributes of the dataset, and relationship about the attributes. <br>
-Task 2: Write 5 innovative questions and find the data from the dataset to answer the questions.<br>
-Task 3: Visualize the result of task 2 using appropriate plots. <br>
-Task 4: Submit your output in a pdf file. <br>
