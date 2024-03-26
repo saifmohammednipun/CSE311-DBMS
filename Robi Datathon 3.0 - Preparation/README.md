@@ -7,6 +7,7 @@
 4. Data Analysis with Python Course - Numpy, Pandas, Data Visualization - https://www.youtube.com/watch?v=GPVsHOlRBBI
 5. Data Analytics with the Google Stack (SQL, Python, Data Visualization, Data Analysis) - https://www.youtube.com/watch?v=NnSIKA77pD8
 6. https://drive.google.com/drive/folders/1Gc4_CBkAHqJDGg-E1USLdtLjPO12-C02?fbclid=IwAR1aIGnx35J6VdWuXhGNjiPXieiPEThLuheiPJ-I3WMK8Kr0Eatb9xzc-Ik
+7. https://github.com/kazishuvo22/BigMart_Sales_Prediction
 
 ## For Learning To do
 1. Python Language
