@@ -56,7 +56,7 @@ From Student S, Takes T, Course C
 Where S.Sid = T.Sid
 and T.course-id = C.course-id
 and T.semester = 'Fall'
-and T.year = 2018
+and T.yearf = 2018
 and T.course-id in (Select course-id
                     From Takes, Student
                     Where Student.Sid = Takes.Sid)
