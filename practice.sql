@@ -143,7 +143,8 @@ Where Tid IN (Select Tid
               And department-id IN (Select department-id
                                     From Teacher
                                     Where Tid = 1001));
----
+<hr>
+
 
 -- Given the relational schema as follows:
 -- branch(branch name, branch city, assets)
@@ -220,7 +221,7 @@ Where customer name IN (Select customer name
                         Select customer name
                         From borrower
                         Where loan number IN (Select loan number From loan));
----
+<hr>
 
 
 -- Given the relational schema as follows:
@@ -252,8 +253,9 @@ From employee e join works w on e.person name = w.person name
 Where w.company name IN (Select company name
                         From company
                         Where c.city = e.city);
----
-                        
+<hr>
+
+
 -- Q: Given the following relational schema:
 -- branch(branch name, branch city, assets)
 -- customer (customer name, customer street, customer city)
@@ -290,4 +292,4 @@ Set balance = case
                 customer city = 'Dhaka' then balance * 1.05
                 else balance * 1.06
                 end;
----
+<hr>
