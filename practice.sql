@@ -64,10 +64,81 @@ taken all courses taken by Abid in Fall 2018.
 Select S.Sid, S.name, T.course-id, C.title
 From Student S join Takes T on S.Sid = T.Sid
               join Course C on T.course-id = C.course-id
-Where T.course-id NOT Exists(Select course-id
-                      From Takes
-                      Where Sid = (Select Sid
-                                   From Student
-                                   Where name = 'Abid')
-                      And semester = 'Fall'
-                      And year = 2018);
+
+ -- Not Exists is used to find the students who have taken all the courses taken by Abid in Fall 2018
+Where Not Exists ( Select course-id  -- courses taken by Abid in Fall 2018
+                   From Takes
+                  Where Sid = (Select Sid
+                               From Student
+                               Where name = 'Abid')
+                  And semester = 'Fall'
+                  And year = 2018
+                    Except
+                    Select course-id  -- coursees taken by all students in Fall 2018
+                    From Takes
+                    Where Sid = S.Sid
+                    And semester = T.semester
+                    And year = T.year);
+
+Q. 7: Increase salary by 10% of all teachers who taught 3 credit courses in Spring 2024.
+Update Teacher
+Set salary = salary + salary * 0.1
+Where Tid IN (Select Tid
+              From Teach
+              Where semester = 'Spring'
+              And year = 2024
+              And course-id IN (Select course-id
+                                From Course
+                                Where credit-hour = 3));
+
+Q. 8. Some students have become teachers. Write SQL statement to insert id, name, street,
+city, mobile and email into teacher table for those students with cgpa 4 and tot-cred 130.
+Other attributes will be null.
+
+Insert into Teacher (Tid, name, street, city, mobile, email)
+Select Sid, name, street, city, mobile, email
+From Student
+Where CGPA = 4 and tot-cred = 130;
+
+Q.9 Update the salary of all teachers for Spring 2023 into null. Then update their salary by
+the sum of all remuneration of courses taught by each teacher in Spring 2023.
+
+Update Teacher
+Set salary = null
+Where Tid IN (Select Tid
+              From Teach
+              Where semester = 'Spring'
+              And year = 2023)
+
+Update Teacher t
+Set salary = (Select sum(remuneration)
+              From Teach th
+              Where t.Tid = th.Tid
+              And semester = 'Spring'
+              And year = 2023)
+
+Q10: Update the tot-cred of all students by the sum of all credits of courses taken by each
+student and gradepoint is neither null nor ‘F’.
+
+update Student
+Set tot-cred = (Select sum(credit-hour)
+                From Takes
+                Where Student.Sid = Takes.Sid
+                And gradepoint IS NOT NULL
+                And gradepoint <> 'F');
+
+
+Q11: Find all the brothers (With same F-NID and teacher or students) of Tid = 1001.
+
+Select Tid, name
+From Teacher
+Where F-NID = (Select F-NID
+               From Teacher
+               Where Tid = 1001)
+Union
+
+Select Sid, name
+From Student
+Where F-NID = (Select F-NID
+               From Teacher
+               Where Tid = 1001);
