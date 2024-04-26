@@ -1,4 +1,5 @@
 -- The relational schema for student course registration are as follows
+
 -- Parents-S(F-NID, M-NID, Sid, F-name, M-name, street, city, income)
 -- Student (Sid, name, street, city. Mobile, email, CGPA, age, tot-cred, dept-id)
 -- Takes (course-id, Sid, semester, year, gradepoint)
