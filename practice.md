@@ -1,22 +1,28 @@
--- The relational schema for student course registration are as follows
--- Parents-S(F-NID, M-NID, Sid, F-name, M-name, street, city, income)
--- Student (Sid, name, street, city. Mobile, email, CGPA, age, tot-cred, dept-id)
--- Takes (course-id, Sid, semester, year, gradepoint)
--- Course (course-id, title, credit-hour)
--- Parents-T(F-NID, M-NID, Tid, F-name, M-name, street, city, income)
--- Teacher (Tid, name, designation, street, city, Mobile, email, salary, date-of-birth, dept-id)
--- Teach (course-id, Tid, semester, year, remuneration)
+> The relational schema for student course registration are as follows
+> Parents-S(F-NID, M-NID, Sid, F-name, M-name, street, city, income)
+> Student (Sid, name, street, city. Mobile, email, CGPA, age, tot-cred, dept-id)
+> Takes (course-id, Sid, semester, year, gradepoint)
+> Course (course-id, title, credit-hour)
+> Parents-T(F-NID, M-NID, Tid, F-name, M-name, street, city, income)
+> Teacher (Tid, name, designation, street, city, Mobile, email, salary, date-of-birth, dept-id)
+> Teach (course-id, Tid, semester, year, remuneration)
 
--- Q. 1: Write SQL expression to find Sid, F-NID, M-NID, mobile, email and age of all
--- students whose tot-cred is greater than or equal to 130.
+--------------------------------
+
+Q. 1: Write SQL expression to find Sid, F-NID, M-NID, mobile, email and age of allstudents whose  tot-cred is greater than or equal to 130. <br>
+
+```sql
 Select s.Sid, p.F-NID, p.M-NID, s.mobile, s.email, s.age
 From Students s join Parents-S p on s.Sid = p.Sid
 Where s.sid IN (Select sid 
                From Student
-               Where tot-cred >= 130)
+               Where tot-cred >= 130);
+```
 
--- Q. 2: Write SQL expression to find F-NID, Sid, course-id and title for all students whose
--- parents live in Dhaka.
+Q. 2: Write SQL expression to find F-NID, Sid, course-id and title for all students whose
+parents live in Dhaka.
+
+```sql
 Select p.F-NID, s.Sid, t.course-id, c.title
 From Parents-S p join Student s on p.Sid = s.Sid
                  join Takes t on s.Sid = t.Sid
@@ -24,6 +30,8 @@ From Parents-S p join Student s on p.Sid = s.Sid
 Where p.F-NID IN (Select F-NID
                  From Parents-S
                  Where city = 'Dhaka');
+```
+
 
 -- Q. 3: Write SQL expression to find Sid, name, street, city and average gradepoint of each student.
 Select s.Sid, s.name, s.street, s.city, avg(t.gradepoint)
