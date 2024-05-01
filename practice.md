@@ -17,7 +17,7 @@ Select s.Sid, p.F-NID, p.M-NID, s.mobile, s.email, s.age
 From Students s join Parents-S p on s.Sid = p.Sid
 Where s.sid IN (Select sid 
                From Student
-               Where tot-cred >= 130)
+               Where tot-cred >= 130);
 ```
 
 Q. 2: Write SQL expression to find F-NID, Sid, course-id and title for all students whose
@@ -118,8 +118,10 @@ From Student
 Where CGPA = 4 and tot-cred = 130;
 ```
 
--- Q.9 Update the salary of all teachers for Spring 2023 into null. Then update their salary by
--- the sum of all remuneration of courses taught by each teacher in Spring 2023.
+Q.9 Update the salary of all teachers for Spring 2023 into null. Then update their salary by
+the sum of all remuneration of courses taught by each teacher in Spring 2023.
+
+```sql
 Update Teacher
 Set salary = null
 Where Tid IN (Select Tid
@@ -132,33 +134,41 @@ Set salary = (Select sum(remuneration)
               From Teach th
               Where t.Tid = th.Tid
               And semester = 'Spring'
-              And year = 2023)
+              And year = 2023);
+```
 
--- Q10: Update the tot-cred of all students by the sum of all credits of courses taken by each
--- student and gradepoint is neither null nor ‘F’.
+Q10: Update the tot-cred of all students by the sum of all credits of courses taken by each
+student and gradepoint is neither null nor ‘F’.
+
+```sql
 update Student
 Set tot-cred = (Select sum(credit-hour)
                 From Takes
                 Where Student.Sid = Takes.Sid
                 And gradepoint IS NOT NULL
                 And gradepoint <> 'F');
+```
 
+Q11: Find all the brothers (With same F-NID and teacher or students) of Tid = 1001.
 
--- Q11: Find all the brothers (With same F-NID and teacher or students) of Tid = 1001.
+```sql
 Select Tid, name
 From Teacher
 Where F-NID = (Select F-NID
                From Teacher
                Where Tid = 1001)
 Union
+
 Select Sid, name
 From Student
 Where F-NID = (Select F-NID
                From Teacher
                Where Tid = 1001);
+```
 
--- Q12: Find Sid, name, department id of all students with the same teacher name in the same 
--- department.
+Q12: Find Sid, name, department id of all students with the same teacher name in the same  department.
+
+```sql
 Select Sid, name, department-id
 From Student
 Where Tid IN (Select Tid
@@ -169,8 +179,7 @@ Where Tid IN (Select Tid
               And department-id IN (Select department-id
                                     From Teacher
                                     Where Tid = 1001));
-
-
+```
 
 -- Given the relational schema as follows:
 -- branch(branch name, branch city, assets)
