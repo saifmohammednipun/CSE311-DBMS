@@ -181,28 +181,33 @@ Where Tid IN (Select Tid
                                     Where Tid = 1001));
 ```
 
--- Given the relational schema as follows:
--- branch(branch name, branch city, assets)
--- customer (customer name, customer street, customer city)
--- loan (loan number, branch name, amount)
--- borrower (customer name, loan number)
--- account (account number, branch name, balance )
--- depositor (customer name, account number)
+> Given the relational schema as follows:
+> branch(branch name, branch city, assets)
+> customer (customer name, customer street, customer city)
+> loan (loan number, branch name, amount)
+> borrower (customer name, loan number)
+> account (account number, branch name, balance )
+> depositor (customer name, account number)
 
--- a. Insert all the loans of branch name = “NSU” to the account relation as loan number will 
--- be account number and amount will be balance.
+a. Insert all the loans of branch name = “NSU” to the account relation as loan number will  be account number and amount will be balance.
+
+```sql
 Insert into account(account number, loan number, balance)
 Select loan number, loan number, amount
 From loan
 Where branch name = 'NSU';
 
--- b. Delete all loans of customers who lives in ‘Gazipur
+```
+b. Delete all loans of customers who lives in ‘Gazipur
+
+```sql
 Delete from loan
 Where loan number IN (Select loan number
                       From borrower
                       Where customer name IN (Select customer name
                                               From customer
                                               Where customer city = 'Gazipur'));
+```
 
 -- c. Find the list of customer name, branch name and branch city of all customers who lives in ‘Dhaka’
 Select c.customer name, b.branch name, b.branch city
