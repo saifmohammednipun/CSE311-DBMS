@@ -141,29 +141,32 @@ Q10: Update the tot-cred of all students by the sum of all credits of courses ta
 student and gradepoint is neither null nor ‘F’.
 
 ```sql
-update Student
-Set tot-cred = (Select sum(credit-hour)
-                From Takes
-                Where Student.Sid = Takes.Sid
-                And gradepoint IS NOT NULL
-                And gradepoint <> 'F');
+update Student s
+Set s.tot-cred = (Select sum(c.credit-hour)
+                From Course c join Takes t on c.course-id = t.course-id
+                Where t.Sid = s.Sid
+                t.gradepoint is not null 
+                or t.gradepoint <> 'F')
 ```
 
 Q11: Find all the brothers (With same F-NID and teacher or students) of Tid = 1001.
 
 ```sql
-Select Tid, name
-From Teacher
-Where F-NID = (Select F-NID
-               From Teacher
-               Where Tid = 1001)
+Select s.Sid, s.name
+From Student s
+Join Parents_S ps ON s.Sid = ps.Sid
+Where ps.F_NID IN ( Select F_NID
+                    From Parents_T
+                    Where Tid = 1001)
 Union
 
-Select Sid, name
-From Student
-Where F-NID = (Select F-NID
-               From Teacher
-               Where Tid = 1001);
+Select t.id, t.name
+From Teacher t
+Join Parents-T pt on t.Tid = pt.Tid
+Where pt.F-NID IN ( Select F-NID
+                    From Parents-T  
+                    Where Tid = 1000)
+
 ```
 
 Q12: Find Sid, name, department id of all students with the same teacher name in the same  department.
