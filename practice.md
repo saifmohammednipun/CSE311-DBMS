@@ -212,7 +212,7 @@ Where loan number IN (Select loan number
                                               Where customer city = 'Gazipur'));
 ```
 
--- c. Find the list of customer name, branch name and branch city of all customers who lives in ‘Dhaka’
+c. Find the list of customer name, branch name and branch city of all customers who lives in ‘Dhaka’
 ```sql
 Select c.customer name, b.branch name, b.branch city
 From customer c join depositor d on c.customer name = d.customer name
