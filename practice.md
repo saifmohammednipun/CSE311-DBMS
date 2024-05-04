@@ -213,6 +213,7 @@ Where loan number IN (Select loan number
 ```
 
 -- c. Find the list of customer name, branch name and branch city of all customers who lives in ‘Dhaka’
+```sql
 Select c.customer name, b.branch name, b.branch city
 From customer c join depositor d on c.customer name = d.customer name
                 join account a on d.account number = a.account number
@@ -220,10 +221,12 @@ From customer c join depositor d on c.customer name = d.customer name
 Where c.customer name IN (Select customer name
                           From customer
                           Where customer city = 'Dhaka');
+```
 
 
--- d. Find the list of customer name, branch name and branch city of all customers who have 
--- accounts in all branches in comilla city.
+d. Find the list of customer name, branch name and branch city of all customers who have 
+accounts in all branches in comilla city.
+```sql
 Select c.customer name, b.branch name, b.branch city
 From customer c join depositor d on c.customer name = d.customer name
                 join account a on d.account number = a.account number
@@ -235,15 +238,21 @@ Where NOT EXISTS (Select branch name
                   Select branch name
                   From account
                   Where d.account number = a.account number);
+```
 
--- e. Add 10% benefit to all accounts with balance less than 50000 and 5% benefit to others.
+e. Add 10% benefit to all accounts with balance less than 50000 and 5% benefit to others.
+
+```sql
 Update account
 Set balance =  case 
                salary < 5000 then balance * 1.1
                else balance * 1.05
                end;
+```
 
--- f. Find customer name and city of all customers who have both loan and account.
+f. Find customer name and city of all customers who have both loan and account.
+
+```sql
 Select customer name, customer city
 From customer
 Where customer name IN (Select customer name
@@ -253,8 +262,11 @@ Where customer name IN (Select customer name
                         Select customer name
                         From depositor
                         Where account number IN (Select account number From account));
+```
 
--- g. Find customer name and city of all customers who have account but no loan.
+g. Find customer name and city of all customers who have account but no loan.
+
+```sql
 Select customer name, customer city
 From customer
 Where customer name IN (Select customer name
@@ -264,74 +276,87 @@ Where customer name IN (Select customer name
                         Select customer name
                         From borrower
                         Where loan number IN (Select loan number From loan));
+```
 
 
 
--- Given the relational schema as follows:
--- employee (person name, street, city)
--- works (person name, company name, salary)
--- company (company name, city)
+> Given the relational schema as follows:
+> employee (person name, street, city)
+> works (person name, company name, salary)
+> company (company name, city)
 
--- a. Find person name, street, employee.city, company name, company.city for all employees 
--- salary greater than 10000.
+a. Find person name, street, employee.city, company name, company.city for all employees 
+
+```sql
+salary greater than 10000.
 Select e.person name, e.street, e.city, w.company name, c.city
 From employee e join works w on e.person name = w.person name
                 join company c on w.company name = c.company name
 Where p.person name IN (Select person name 
                         From works
                         Where salary > 10000);
+```
 
--- b. Find person name, street and city of all employees who live in the same city as 
--- ‘Mr. Akib’ lives.
+b. Find person name, street and city of all employees who live in the same city as 
+‘Mr. Akib’ lives.
+```sql
 Select person name, street, city
 From employee 
 Where city IN (Select city
                From employee
                Where person name = 'Mr. Akib');
+```
 
--- c. Find all person name of all employees who live in the same city as the company.
+c. Find all person name of all employees who live in the same city as the company.
+
+```sql
 Select person name
 From employee e join works w on e.person name = w.person name
                 join company c on w.company name = c.company name
 Where w.company name IN (Select company name
                         From company
                         Where c.city = e.city);
+```
 
 
+> Q: Given the following relational schema:
+> branch(branch name, branch city, assets)
+> customer (customer name, customer street, customer city)
+> borrower (customer name, loan number)
+> loan (loan number, branch name, amount)
 
--- Q: Given the following relational schema:
--- branch(branch name, branch city, assets)
--- customer (customer name, customer street, customer city)
--- borrower (customer name, loan number)
--- loan (loan number, branch name, amount)
-
--- Find each customer city and the total amount of loan of that customer city. Output:
--- customer city, loan-amount.
+Find each customer city and the total amount of loan of that customer city. Output:
+customer city, loan-amount.
+```sql
 Select c.customer city, sum(l.amount)
 From customer c join borrower b on c.customer name = b.customer name
                 join loan l on b.loan number = l.loan number
 Group by customer city;
+```
 
+> Q. Given the following relational schema:
+> branch(branch name, branch city, assets)
+> customer (customer name, customer street, customer city)
+> depositor (customer name, account number)
+> account (account number, branch name, balance )
 
--- Q Given the following relational schema:
--- branch(branch name, branch city, assets)
--- customer (customer name, customer street, customer city)
--- depositor (customer name, account number)
--- account (account number, branch name, balance )
-
--- a. Delete all accounts of customers who lives in ‘Sylhet’.
+a. Delete all accounts of customers who lives in ‘Sylhet’.
+```sql
 Delete from account
 Where account number IN (Select account number
                          From depositor
                          Where customer name IN (Select customer name
                                                  From customer
                                                  Where customer city = 'Sylhet'));
+```
 
--- b. Gave 10% profit to all accounts of customers living in Bhola and 5% profit to customers
--- living in Dhaka and 6% to others.
+b. Gave 10% profit to all accounts of customers living in Bhola and 5% profit to customers
+living in Dhaka and 6% to others.
+```sql
 Update account
 Set balance = case
                 customer city = 'Bhola' then balance * 1.1
                 customer city = 'Dhaka' then balance * 1.05
                 else balance * 1.06
                 end;
+```
