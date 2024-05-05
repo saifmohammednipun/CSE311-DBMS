@@ -195,8 +195,8 @@ Where Tid IN (Select Tid
 a. Insert all the loans of branch name = “NSU” to the account relation as loan number will  be account number and amount will be balance.
 
 ```sql
-Insert into account(account number, loan number, balance)
-Select loan number, loan number, amount
+Insert into account(account_number, branch_name, balance)
+Select account_number, loan number, amount
 From loan
 Where branch name = 'NSU';
 
@@ -278,17 +278,15 @@ Where customer name IN (Select customer name
                         Where loan number IN (Select loan number From loan));
 ```
 
-
-
 > Given the relational schema as follows:
 > employee (person name, street, city)
 > works (person name, company name, salary)
 > company (company name, city)
 
 a. Find person name, street, employee.city, company name, company.city for all employees 
+salary greater than 10000.
 
 ```sql
-salary greater than 10000.
 Select e.person name, e.street, e.city, w.company name, c.city
 From employee e join works w on e.person name = w.person name
                 join company c on w.company name = c.company name
@@ -299,23 +297,23 @@ Where p.person name IN (Select person name
 
 b. Find person name, street and city of all employees who live in the same city as 
 ‘Mr. Akib’ lives.
+
 ```sql
 Select person name, street, city
 From employee 
-Where city IN (Select city
-               From employee
-               Where person name = 'Mr. Akib');
+Where city IN ( Select city
+                From employee
+                Where person name = 'Mr. Akib');
 ```
 
 c. Find all person name of all employees who live in the same city as the company.
 
 ```sql
-Select person name
-From employee e join works w on e.person name = w.person name
-                join company c on w.company name = c.company name
-Where w.company name IN (Select company name
-                        From company
-                        Where c.city = e.city);
+Select e.person_name
+From employee e
+Where e.city IN ( Select c.city
+                 From company c join works w on c.comapny_name = w.company_name
+                 Where c.city = e.city);
 ```
 
 
