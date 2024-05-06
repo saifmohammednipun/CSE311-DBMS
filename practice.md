@@ -36,10 +36,9 @@ Where p.Sid IN (Select Sid
 Q. 3: Write SQL expression to find Sid, name, street, city and average gradepoint of each student.
 
 ```sql
-Select s.Sid, s.name, s.street, s.city, (Select avg(t.gradepoint)
-                                         From Takes t
-                                         Where t.Sid = s.Sid) as average_gradepoint
-From Student s;
+Select s.Sid, s.name, s.street, s.city, avg(t.gradepoint)     
+From Student s
+Group by sid;
 ```
 
 Q. 4: Find city and street wise average, maximum and minimum income of parents (of students) 
@@ -48,11 +47,11 @@ living in Dhaka or Rajshahi and average income higher than 500000.
 ```sql
 Select city, street, avg(income), max(income), min(income)
 From Parents-S
-Where city In ( Select city 
-                From Parents-S 
-                Where city = 'Dhaka' or 'Rajshahi'
-                Group by city, street
-                Having avg(income) > 500000);
+Where P-NID In ( Select P-NID
+                 From Parents-S 
+                 Where city = 'Dhaka' or 'Rajshahi'
+                 Group by city, street
+                 Having avg(income) > 500000);
 ```
 
 Q. 5: Write SQL expression to find Sid, name, course-id and title of all students who have
@@ -166,7 +165,6 @@ Join Parents-T pt on t.Tid = pt.Tid
 Where pt.F-NID IN ( Select F-NID
                     From Parents-T  
                     Where Tid = 1000)
-
 ```
 
 Q12: Find Sid, name, department id of all students with the same teacher name in the same  department.
