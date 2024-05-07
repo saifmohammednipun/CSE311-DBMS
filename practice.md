@@ -242,8 +242,7 @@ e. Add 10% benefit to all accounts with balance less than 50000 and 5% benefit t
 
 ```sql
 Update account
-Set balance =  case 
-               salary < 5000 then balance * 1.1
+Set balance =  case salary < 5000 then balance * 1.1
                else balance * 1.05
                end;
 ```
