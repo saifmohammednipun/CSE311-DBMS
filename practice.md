@@ -164,22 +164,17 @@ From Teacher t
 Join Parents-T pt on t.Tid = pt.Tid
 Where pt.F-NID IN ( Select F-NID
                     From Parents-T  
-                    Where Tid = 1000)
+                    Where Tid = 1001)
 ```
 
-Q12: Find Sid, name, department id of all students with the same teacher name in the same  department.
+Q12: Find Sid, name, department id of all students with the same teacher name in the same department.
 
 ```sql
-Select Sid, name, department-id
+Select Sid, sname, dept-id
 From Student
-Where Tid IN (Select Tid
-              From Teacher
-              Where name IN (Select name
-                             From Teacher
-                             Where Tid = 1001)
-              And department-id IN (Select department-id
-                                    From Teacher
-                                    Where Tid = 1001));
+Where dept_id IN (Select dept_id
+                  From Tacher
+                  Where name = Student.name);
 ```
 
 > Given the relational schema as follows:
