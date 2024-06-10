@@ -220,17 +220,19 @@ Where c.customer name IN (Select customer name
 d. Find the list of customer name, branch name and branch city of all customers who have 
 accounts in all branches in comilla city.
 ```sql
-Select c.customer name, b.branch name, b.branch city
-From customer c join depositor d on c.customer name = d.customer name
-                join account a on d.account number = a.account number
-                join branch b on a.branch name = b.branch name
-Where NOT EXISTS (Select branch name
+Select c.customer_name, b.branch_name, b.branch_city
+From customer c join depositor d on c.customer_name = d.customer_name
+                join account a on d.account_number = a.account_number
+                join branch b on a.branch_name = b.branch_name
+Where NOT EXISTS (Select branch_name
                   From branch
-                  Where branch city = 'Comilla'
-                    Except
-                  Select branch name
-                  From account
-                  Where d.account number = a.account number);
+                  Where branch_city = 'Comilla'
+                  
+                  Except
+                  
+                  Select branch_name 
+                  From branch 
+                  Where branch_city = b.branch_city);
 ```
 
 e. Add 10% benefit to all accounts with balance less than 50000 and 5% benefit to others.
@@ -245,15 +247,22 @@ Set balance =  case salary < 5000 then balance * 1.1
 f. Find customer name and city of all customers who have both loan and account.
 
 ```sql
-Select customer name, customer city
-From customer
-Where customer name IN (Select customer name
-                        From borrower
-                        Where loan number IN (Select loan number From loan)
-                        Intersect
-                        Select customer name
-                        From depositor
-                        Where account number IN (Select account number From account));
+SELECT c.customer_name, b.branch_name, b.branch_city
+FROM customer c
+JOIN depositor d ON c.customer_name = d.customer_name
+JOIN account a ON d.account_number = a.account_number
+JOIN branch b ON a.branch_name = b.branch_name
+WHERE NOT EXISTS (
+    SELECT branch_name
+    FROM branch
+    WHERE branch_city = 'Comilla'
+    EXCEPT
+    SELECT a2.branch_name
+    FROM account a2 
+    JOIN depositor d2 ON a2.account_number = d2.account_number
+    WHERE d2.customer_name = c.customer_name
+);
+
 ```
 
 g. Find customer name and city of all customers who have account but no loan.
