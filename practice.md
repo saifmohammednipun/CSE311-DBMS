@@ -250,29 +250,23 @@ Set balance =  case salary < 5000 then balance * 1.1
 f. Find customer name and city of all customers who have both loan and account.
 
 ```sql
-Select customer name, customer city
-From customer
-Where customer name IN (Select customer name
-                        From borrower
-                        Where loan number IN (Select loan number From loan)
-                        Intersect
-                        Select customer name
-                        From depositor
-                        Where account number IN (Select account number From account));
+SELECT c.customer_name, c.customer_city
+FROM customer c
+JOIN borrower b ON c.customer_name = b.customer_name
+JOIN loan l ON b.loan_number = l.loan_number
+JOIN account a ON l.branch_name = a.branch_name
+JOIN depositor d ON c.customer_name = d.customer_name;
 ```
 
 g. Find customer name and city of all customers who have account but no loan.
 
 ```sql
-Select customer name, customer city
-From customer
-Where customer name IN (Select customer name
-                        From depsitor
-                        Where accounte number IN (Select account number From accounet)
-                        Except
-                        Select customer name
-                        From borrower
-                        Where loan number IN (Select loan number From loan));
+SELECT DISTINCT c.customer_name, c.customer_city
+FROM customer c
+INNER JOIN depositor d ON c.customer_name = d.customer_name
+INNER JOIN account a ON d.account_number = a.account_number
+LEFT JOIN loan l ON a.branch_name = l.branch_name
+WHERE l.loan_number IS NULL;
 ```
 
 > Given the relational schema as follows:
